@@ -1,5 +1,7 @@
 <template>
   <div id="pdfvuer">
+    <LoadingWheel :loaded="loaded"></LoadingWheel>
+    <div :v-show="isLoaded" id="pageContainer">
     <pdf :src="pdfdata" v-for="i in numPages" :key="i" :id="i" :page="i"
       scale=1 style="width:100%; margin:20px auto;"
         :annotation="true"
@@ -14,10 +16,12 @@
       <button class="px-2 py1  mx-1 font-medium text-white bg-blue-500 rounded-lg hover:outline-black hover:outline-none" @click="page < numPages ? page++ : 1">&#8659;</button>
     </div>
   </div>
+  </div>
 </template>
 
 <script>
 import pdfvuer from 'pdfvuer'
+import LoadingWheel from './LoadingWheel.vue';
 // import $ from 'jquery'
 
 export default {
@@ -31,21 +35,26 @@ export default {
     }
   },
   components: {
-    pdf: pdfvuer
-  },
+    pdf: pdfvuer,
+    LoadingWheel
+},
   data () {
     return {
       page: 1,
       numPages: 0,
       pdfdata: undefined,
       errors: [],
-      scale: 'page-width'
+      scale: 'page-width',
+      loaded: false
     }
   },
   computed: {
     formattedZoom () {
         return Number.parseInt(this.scale * 100);
     },
+    isLoaded() {
+      return self.loaded;
+    }
   },
   mounted () {
     console.log(this.pdfUrl);
@@ -75,6 +84,7 @@ export default {
       var self = this;
       self.pdfdata = pdfvuer.createLoadingTask(this.pdfUrl);
       self.pdfdata.then(pdf => {
+        self.loaded = true;
         self.numPages = pdf.numPages;
         window.onscroll = function() { 
           changePage() 
