@@ -45,13 +45,13 @@
       <div class="flex items-center">
         <input
           v-model="newMessage"
-          class="flex-1 bg-gray-700 rounded-full py-2 px-3 mr-2 focus:outline-none"
+          class="flex-1 bg-gray-700 rounded-full py-2 px-3 mr-2 focus:outline-none w-10"
           type="text"
           placeholder="Enter your message..."
           @keypress.enter="sendMessage"
         >
         <button @click.prevent="sendMessage" class="bg-blue-500 hover:bg-blue-600 rounded-full py-2 px-4 text-white font-semibold focus:outline-none">
-          Send
+          <div class="md:hidden">Send</div>
         </button>
       </div>
     </div>

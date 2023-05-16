@@ -1,13 +1,13 @@
 <template>
   <header class="bg-sky-950 text-white sticky top-0 z-50 max-h-15 ">
-    <nav class="mx-auto flex max-w-7xl items-center justify-between px-6 py-1 lg:px-8" aria-label="Global">
+    <nav class="mx-auto flex items-center justify-between px-2 py-1 lg:px-8" aria-label="Global">
       <div class="flex lg:flex-1">
         <a href="#" class="-m-1.5 p-1.5">
           <span class="sr-only">Your Company</span>
           <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="" />
         </a>
       </div>
-      <div class="flex lg:hidden">
+      <div class="flex lg:hidden mr-2">
         <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white z-100" @click="mobileMenuOpen = !mobileMenuOpen">
           <span class="sr-only">Open main menu</span>
           <Bars3Icon class="h-6 w-6" aria-hidden="true" />

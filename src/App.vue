@@ -6,8 +6,7 @@
 
 <script>
 import PbHeader from './components/PbHeader.vue';
-// import ChatUI from './components/ChatUI.vue';
-// import PdfReader from './components/PdfReader.vue';
+
 
 export default {
   name: 'App',
@@ -36,5 +35,7 @@ export default {
 </script>
 
 <style>
-/* Add your custom styles here */
+body {
+  margin: 0;
+}
 </style>

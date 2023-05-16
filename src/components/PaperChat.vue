@@ -1,14 +1,14 @@
 <template>
-<div class="container mx-auto p-4 bg-gray-900 text-white">
-  <div class="flex justify-between">
-    <div class="w-1/3 mr-4 bg-gray-800 rounded-lg shadow-lg">
-      <ChatUI class="h-screen w-max-full " />
-    </div>
-    <div class="w-2/3 bg-gray-800 px-4 rounded-lg shadow-lg">
-      <PdfReader class="h-screen overflow-y-scroll" :pdf-url="getPdfUrl()"/>
+  <div class="container mx-auto p-4 bg-gray-900 text-white h-screen">
+    <div class="flex justify-between h-full">
+      <div class="w-1/3 mr-4 bg-gray-800 rounded-lg shadow-lg">
+        <ChatUI class="h-full w-full" />
+      </div>
+      <div class="w-2/3 bg-gray-800 px-4 rounded-lg shadow-lg">
+        <PdfReader class="h-full overflow-y-scroll" :pdf-url="getPdfUrl()" />
+      </div>
     </div>
   </div>
-</div>
 </template>
 
 <script>

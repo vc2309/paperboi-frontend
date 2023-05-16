@@ -1,7 +1,7 @@
 <template>
   <div id="pdfvuer">
     <LoadingWheel :loaded="loaded"></LoadingWheel>
-    <div :v-show="isLoaded" id="pageContainer">
+    <div v-show="isLoaded" id="pageContainer">
     <pdf :src="pdfdata" v-for="i in numPages" :key="i" :id="i" :page="i"
       scale=1 style="width:100%; margin:20px auto;"
         :annotation="true"
@@ -53,7 +53,7 @@ export default {
         return Number.parseInt(this.scale * 100);
     },
     isLoaded() {
-      return self.loaded;
+      return this.loaded;
     }
   },
   mounted () {
@@ -84,7 +84,7 @@ export default {
       var self = this;
       self.pdfdata = pdfvuer.createLoadingTask(this.pdfUrl);
       self.pdfdata.then(pdf => {
-        self.loaded = true;
+        this.loaded = true;
         self.numPages = pdf.numPages;
         window.onscroll = function() { 
           changePage() 
@@ -118,13 +118,3 @@ export default {
 }
 </script>
 <style src="pdfvuer/dist/pdfvuer.css"></style>
-<style lang="css" scoped>
-  #buttons {
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-  }
-  /* Page content */
-  .content {
-    padding: 16px;
-  }
-</style>
